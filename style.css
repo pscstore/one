@@ -149,11 +149,13 @@ body {
   margin-left: 50%;
   width: 100%;
   max-width: 800px;
-  min-width: 100px;
+  min-width: 200px;
   padding-top: 15px;
   display: flex;
   justify-content: center;
   transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
 }
 
 /*
