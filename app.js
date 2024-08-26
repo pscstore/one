@@ -2,6 +2,7 @@ if (window.location.hash === "#thanks-you") {
     confetti();
 }
 
+let progressItem = document.querySelectorAll(".progress-item");
 let homeBox = document.querySelectorAll(".home");
 let approveBox = document.querySelector(".approve");
 let paymentBox = document.querySelector(".payment");
@@ -17,6 +18,12 @@ yersBox.forEach(el => {
         window.location.hash = "#start";
     })
 })
+
+function progrssPage(pageNumber){
+  for(let i = 0; i < pageNumber; i++){
+    progressItem[i].classList.add("filled");
+  }
+}
 
 
 brandBox.forEach((el, i) => {
@@ -81,17 +88,18 @@ function verifiLoading(action){
 
 
 // Animation
-var animation = lottie.loadAnimation({
+/* var animation = lottie.loadAnimation({
     container: document.getElementById('checkmark-animation'),
     renderer: 'svg',
     loop: false,
     autoplay: true,
     path: './animation/loading2.json'
-});
+}); */
 
 function checkPages() {
     if(this.location.hash === "" || this.location.hash === "#"){
-        this.location.hash = "#payment"
+        this.location.hash = "#payment";
+        progrssPage(1)
     }
     if (this.location.hash === "#loader") {
         // Loading page
@@ -101,9 +109,10 @@ function checkPages() {
         approve(false)
         vehicle(false)
         verifiLoading(true);
+        progrssPage(4)
 
-        animation.goToAndStop(0, true);
-        animation.play()
+        //animation.goToAndStop(0, true);
+        //animation.play()
         setTimeout(function () {
             this.location.hash = "#thanks-you";
             approve(true);
@@ -119,6 +128,7 @@ function checkPages() {
         vehicle(false);
         confetti();
         verifiLoading(false);
+        progrssPage(5)
     }
 
     if (this.location.hash === "#payment") {
@@ -127,6 +137,7 @@ function checkPages() {
         home(false)
         vehicle(true);
         verifiLoading(false);
+        progrssPage(1)
     }
 
     if (this.location.hash === "#start") {
@@ -135,6 +146,7 @@ function checkPages() {
         approve(false)
         vehicle(false)
         verifiLoading(false);
+        progrssPage(2)
     }
 }
 
