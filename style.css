@@ -355,15 +355,19 @@ body {
 
 /* Animation lottie file style */
 #checkmark-animation svg path {
-    stroke-width: 2;
+    stroke-width: 8;
 }
 
 #checkmark-animation {
     margin: 0 auto;
 }
 
-#checkmark-animation svg 
+#checkmark-animation svg path {
+    stroke: #26B5E0;
+}
 
-g g g g g path {
-    stroke: #F7F7F7;
+.loading {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 500;
 }

@@ -86,7 +86,7 @@ var animation = lottie.loadAnimation({
     renderer: 'svg',
     loop: false,
     autoplay: true,
-    path: './animation/loading.json'
+    path: './animation/loading2.json'
 });
 
 function checkPages() {
@@ -102,7 +102,7 @@ function checkPages() {
         vehicle(false)
         verifiLoading(true);
 
-        animation.goToAndStop(5, true);
+        animation.goToAndStop(0, true);
         animation.play()
         setTimeout(function () {
             this.location.hash = "#thanks-you";
