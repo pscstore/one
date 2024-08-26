@@ -277,6 +277,12 @@ body {
     margin-right: 10px;
 }
 
+.yers.active {
+    color: #fff !important;
+    border-color: #26b5e0;
+    background: #26b5e0;
+}
+
 .yers:hover,
 .yers:active {
     color: #fff !important;
@@ -369,5 +375,5 @@ body {
 .loading {
   width: 90%;
   margin: 0 auto;
-  max-width: 500;
+  max-width: 300px;
 }

@@ -11,7 +11,7 @@ let brandBox = document.querySelectorAll(".car-brand-box");
 let loadBox = document.querySelector(".progress-container");
 let yersBox = document.querySelectorAll(".yers");
 let verifyPayment = document.querySelector(".verify-payment"); 
-
+let timer = false;
 
 yersBox.forEach(el => {
     el.addEventListener('click', function () {
@@ -20,11 +20,14 @@ yersBox.forEach(el => {
 })
 
 function progrssPage(pageNumber){
-  for(let i = 0; i < pageNumber; i++){
-    progressItem[i].classList.add("filled");
+  for(let i = 0; i < progressItem.length; i++){
+    if(i <= pageNumber - 1){
+      progressItem[i].classList.add("filled");
+    }else {
+      progressItem[i].classList.remove("filled");
+    }
   }
 }
-
 
 brandBox.forEach((el, i) => {
     el.addEventListener("click", function () {
@@ -88,13 +91,13 @@ function verifiLoading(action){
 
 
 // Animation
-/* var animation = lottie.loadAnimation({
+ var animation = lottie.loadAnimation({
     container: document.getElementById('checkmark-animation'),
     renderer: 'svg',
     loop: false,
     autoplay: true,
     path: './animation/loading2.json'
-}); */
+});
 
 function checkPages() {
     if(this.location.hash === "" || this.location.hash === "#"){
@@ -111,14 +114,16 @@ function checkPages() {
         verifiLoading(true);
         progrssPage(4)
 
-        //animation.goToAndStop(0, true);
-        //animation.play()
-        setTimeout(function () {
+        animation.goToAndStop(0, true);
+        animation.play()
+        timer = setTimeout(function () {
             this.location.hash = "#thanks-you";
             approve(true);
             confetti();
             verifiLoading(false);
         }, 2000)
+    }else {
+      clearTimeout(timer)
     }
 
     if (this.location.hash === "#thanks-you") {
