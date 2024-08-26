@@ -1,5 +1,18 @@
+// Custom configuration
+function policyChampConfetti() {
+  confetti({
+    particleCount: 100, // Total number of particles
+    startVelocity: 30, // Speed at which particles are launched
+    spread: 70, // Spread angle of particles
+    gravity: 1, // Default gravity
+    origin: { y: 0.6 }, // Y-axis origin point to start confetti
+    scalar: 1.2 // Size of the particles
+  });
+}
+
 if (window.location.hash === "#thanks-you") {
-  confetti();
+  // confetti();
+  policyChampConfetti()
 }
 
 let progressItem = document.querySelectorAll(".progress-item");
@@ -89,11 +102,11 @@ function verifiLoading(action) {
   }
 }
 
-function carModeList(action){
-  if(action === true){
+function carModeList(action) {
+  if (action === true) {
     carModel.classList.remove("non-active");
     carModel.classList.add("slide-show");
-  }else{
+  } else {
     carModel.classList.add("non-active");
     carModel.classList.remove("slide-show");
   }
@@ -131,8 +144,9 @@ function checkPages() {
     timer = setTimeout(function() {
       this.location.hash = "#thanks-you";
       approve(true);
-      confetti();
-      
+      // confetti();
+      policyChampConfetti()
+
       verifiLoading(false);
     }, 2000)
   } else {
@@ -144,7 +158,8 @@ function checkPages() {
     home(false)
     approve(true);
     vehicle(false);
-    confetti();
+    // confetti();
+    policyChampConfetti()
     verifiLoading(false);
     carModeList(false)
     progrssPage(5)
@@ -169,7 +184,7 @@ function checkPages() {
     carModeList(false)
     progrssPage(2)
   }
-  
+
   if (this.location.hash === "#model") {
     lodder(true)
     home(false)
