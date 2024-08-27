@@ -2,4 +2,5 @@
 - Live site hosted
 - live chnage effect on live site
 - main branch is hoste branch
-  [onetestpss.netlify.app | Live Site]
+
+[Live Server](https://onetestpss.netlify.app/)
