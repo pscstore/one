@@ -442,3 +442,13 @@ body {
   height: 30px;
   margin-right: 5px;
 }
+
+/* car model full box */
+.full-box {
+  width: 100%;
+  max-width: 165px;
+  height: 135px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
